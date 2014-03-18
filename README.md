@@ -1,7 +1,7 @@
-LunaTMX
+LunaTMX - Unity2D Tilemap Importer
 ===========
 
-A small library to import and render tilemap, only support TMX file format.
+A small library to import and render tilemap in Unity2D, only support TMX file format.
 
 ### Features
 
