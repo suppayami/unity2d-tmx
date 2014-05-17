@@ -35,7 +35,7 @@ namespace Symphony {
 
             GUILayout.BeginHorizontal();
             GUILayout.Label("Tilemap XML");
-            tilemap.tileXml = (TextAsset) EditorGUILayout.ObjectField(tilemap.tileXml, typeof(TextAsset), GUILayout.Width(160));
+            tilemap.tileXml = (TextAsset) EditorGUILayout.ObjectField(tilemap.tileXml, typeof(TextAsset), false, GUILayout.Width(160));
             GUILayout.EndHorizontal();
 
             EditorGUILayout.Space();
