@@ -14,7 +14,7 @@ using System.Xml;
 
 
 namespace Symphony {
-    public class Layer : MonoBehaviour {
+    public class Layer {
 
         private int _layerWidth;
         private int _layerHeight;
