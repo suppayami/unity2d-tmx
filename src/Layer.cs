@@ -14,7 +14,7 @@ using System.Xml;
 
 
 namespace Symphony {
-    public class Layer {
+    public class Layer : MonoBehaviour {
 
         private int _layerWidth;
         private int _layerHeight;
@@ -82,8 +82,6 @@ namespace Symphony {
             this.layerTexture.filterMode = FilterMode.Point;
             this.layerTexture.wrapMode   = TextureWrapMode.Clamp;
 
-            this._RenderAlpha();
-
             if (this._layerData != null)
                 this._RenderTiles(tilesets);
             else if(this._objectData != null)
@@ -91,13 +89,6 @@ namespace Symphony {
 
             this.layerTexture.Apply(false);
             this.layerTexture.Compress(true);
-        }
-
-        private void _RenderAlpha() {
-            int totalTiles    = this._layerWidth * this._layerHeight;
-
-            for (int i = 0; i < totalTiles; i++) {
-            }
         }
 
         private void _RenderTiles(List<TileSet> tilesets) {
@@ -173,7 +164,7 @@ namespace Symphony {
             this.layerObject.name = this._name;
             this.layerObject.transform.parent = parent.transform;
 
-            Vector3 pos = this.layerObject.transform.position;
+            Vector3 pos = parent.transform.position;
             pos.z -= parent.transform.childCount;
             this.layerObject.transform.position = pos;
 

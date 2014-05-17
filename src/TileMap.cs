@@ -9,6 +9,7 @@
 
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 
 namespace Symphony {
@@ -27,6 +28,7 @@ namespace Symphony {
         public void RenderMap() {
             if (this._tileData == null)
                 this._tileData = new TileData(this.tileXml);
+            this._DestroyTilemap();
             this._tileData.Reload(this.tileXml);
             this._tileData.RenderMap(gameObject, this.tileFolder, this.unit);
         }
@@ -34,6 +36,18 @@ namespace Symphony {
         public void ClearMap() {
             if (this._tileData != null)
                 this._tileData.Clear();
+        }
+
+        private void _DestroyTilemap() {
+            while (transform.childCount > 0) {
+                Transform child = transform.GetChild(0);
+                SpriteRenderer spriteRenderer = child.GetComponent<SpriteRenderer>();
+                Sprite sprite = spriteRenderer.sprite;
+
+                Object.DestroyImmediate(sprite);
+                Object.DestroyImmediate(spriteRenderer);
+                Object.DestroyImmediate(child.gameObject);
+            }
         }
 
     }
